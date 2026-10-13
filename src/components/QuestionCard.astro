@@ -1,0 +1,52 @@
+---
+import { site } from '../config/site';
+---
+<aside class="card" aria-labelledby="questions-label">
+  <div class="label" id="questions-label">What buyers ask AI · what your site never says</div>
+  <ul class="questions">
+    <li>“How do you compare to {site.competitor}?”</li>
+    <li>“Who is this <em>not</em> a fit for?”</li>
+    <li>“Why does it cost what it costs?”</li>
+    <li>“What goes wrong in implementation?”</li>
+  </ul>
+  <p class="note">Your reps answer these every day. AI tools can’t, until it’s written down.</p>
+</aside>
+
+<style>
+  .card {
+    flex: 1 1 360px;
+    min-width: 0;
+    background: var(--panel);
+    border: 1px solid var(--rule-frame);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .questions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .questions li {
+    padding: 14px 0;
+    border-top: 1px solid var(--rule);
+    font-size: 19px;
+  }
+  .questions li:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+  em {
+    font-style: italic;
+    color: var(--clay-light);
+  }
+  .note {
+    font-size: 15px;
+    color: var(--text-muted);
+  }
+  @media (max-width: 480px) {
+    .card {
+      padding: 24px;
+    }
+  }
+</style>

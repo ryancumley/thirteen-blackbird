@@ -1,0 +1,47 @@
+---
+const items = [
+  'Share of AI answers that mention you, across your 25 most important buyer questions',
+  'Citations of your new pages in ChatGPT, Perplexity and Google AI answers',
+  'Visitors and leads arriving from AI tools',
+  'Questions your AI connector and chatbot answer each month',
+];
+---
+<ol class="list">
+  {
+    items.map((text, i) => (
+      <li>
+        <span class="num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+        <span class="text">{text}</span>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .list {
+    flex: 1 1 460px;
+    min-width: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: flex;
+    gap: 20px;
+    padding: 18px 0;
+    border-top: 1px solid var(--rule);
+  }
+  li:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+  .num {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--clay-light);
+    padding-top: 4px;
+  }
+  .text {
+    color: var(--text-body);
+    font-size: 19px;
+  }
+</style>

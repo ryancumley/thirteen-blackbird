@@ -1,0 +1,244 @@
+---
+import Base from '../layouts/Base.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+import QuestionCard from '../components/QuestionCard.astro';
+import PlaceholderFigure from '../components/PlaceholderFigure.astro';
+import Steps from '../components/Steps.astro';
+import ChannelCard from '../components/ChannelCard.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import CompareTable from '../components/CompareTable.astro';
+import PackageCard from '../components/PackageCard.astro';
+import MeasureList from '../components/MeasureList.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import { packages, photos } from '../config/site';
+import problemPhoto from '../assets/photos/problem.jpg';
+import howPhoto from '../assets/photos/how.jpg';
+---
+<Base>
+  <!-- Hero -->
+  <section id="top" class="container hero">
+    <div class="hero-text stack">
+      <Eyebrow>AEO from your sales floor</Eyebrow>
+      <SectionHeading level={1} text="Your buyers ask AI." accent="Teach it what your best rep knows." />
+      <p class="lede">
+        We interview your top salespeople and turn what they say on calls into content ChatGPT,
+        Perplexity and Gemini can find, trust and repeat.
+      </p>
+      <div class="buttons">
+        <Button href="#contact" size="lg">Get a free AI check</Button>
+        <Button href="#packages" variant="ghost" size="lg">See packages</Button>
+      </div>
+    </div>
+    <QuestionCard />
+  </section>
+
+  <!-- The problem -->
+  <section class="band-deep" aria-labelledby="problem-heading">
+    <div class="container two-col problem">
+      <div class="col stack gap-20">
+        <Eyebrow>The problem</Eyebrow>
+        <SectionHeading id="problem-heading" text="AI only knows what’s public." accent="Your best answers aren’t." />
+        <PlaceholderFigure
+          src={problemPhoto}
+          alt={photos.problem.alt}
+          caption={photos.problem.caption}
+          ratio="4 / 3"
+          widths={[400, 600, 800, 1100]}
+          sizes="(min-width: 1200px) 548px, (min-width: 1000px) 45vw, calc(100vw - 48px)"
+          class="mt-12"
+        />
+      </div>
+      <div class="col stack gap-20 big-body">
+        <p>
+          Buyers now ask AI assistants which vendor to choose. Those tools build answers from public
+          pages, and your website rarely says what your best rep says on a call.
+        </p>
+        <p>
+          Most AEO tools monitor AI answers and rewrite the content you already have. They can’t add
+          knowledge that was never written down.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="container section stack gap-48" aria-labelledby="how-heading">
+    <div class="stack gap-20 intro">
+      <Eyebrow>How it works</Eyebrow>
+      <SectionHeading id="how-heading" text="One set of interviews." accent="Every AI channel." />
+    </div>
+    <Steps />
+    <div class="card-grid">
+      <ChannelCard label="Channel · Public AI answers" title="Answer pages">
+        Specific, factual pages that ChatGPT, Perplexity and Google AI can crawl and cite.
+      </ChannelCard>
+      <ChannelCard label="Channel · Buyers’ AI tools" title="Your own AI app">
+        An MCP server and ChatGPT / Claude app that answers straight from your knowledge base.
+      </ChannelCard>
+      <ChannelCard label="Channel · Your team" title="Chatbot + rep tools">
+        Your site chatbot and your reps’ AI assistants say exactly what your best rep would.
+      </ChannelCard>
+    </div>
+    <div class="ongoing">
+      <PlaceholderFigure
+        src={howPhoto}
+        alt={photos.how.alt}
+        caption={photos.how.caption}
+        ratio="16 / 9"
+        widths={[400, 700, 1000, 1300]}
+        sizes="(min-width: 1200px) 640px, (min-width: 900px) 55vw, calc(100vw - 48px)"
+        class="ongoing-fig"
+      />
+      <p class="ongoing-text">
+        Ongoing: gaps we find in AI answers become next month’s interview questions.
+      </p>
+    </div>
+  </section>
+
+  <!-- What you get -->
+  <section id="get" class="band-deep" aria-labelledby="get-heading">
+    <div class="container section stack gap-48">
+      <div class="stack gap-20">
+        <Eyebrow>What you get</Eyebrow>
+        <SectionHeading id="get-heading" text="Five deliverables." accent="Zero homework for marketing." />
+      </div>
+      <FeatureGrid />
+    </div>
+  </section>
+
+  <!-- Why it's different -->
+  <section class="container section stack gap-40" aria-labelledby="diff-heading">
+    <div class="stack gap-20">
+      <Eyebrow>Why it’s different</Eyebrow>
+      <SectionHeading id="diff-heading" text="Not another dashboard." accent="New knowledge, delivered." />
+    </div>
+    <CompareTable />
+  </section>
+
+  <!-- Packages -->
+  <section id="packages" class="band-deep" aria-labelledby="packages-heading">
+    <div class="container section stack gap-48">
+      <div class="stack gap-20">
+        <Eyebrow>Packages</Eyebrow>
+        <SectionHeading id="packages-heading" text="Start small." accent="Prove it, then scale." />
+      </div>
+      <div class="package-grid">
+        {packages.map((pkg) => <PackageCard pkg={pkg} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- How we measure it -->
+  <section class="container section measure" aria-labelledby="measure-heading">
+    <div class="stack gap-20 measure-head">
+      <Eyebrow>How we measure it</Eyebrow>
+      <SectionHeading id="measure-heading" text="Before and after," accent="in AI’s own words." />
+    </div>
+    <MeasureList />
+  </section>
+
+  <ContactCTA />
+</Base>
+
+<style>
+  .gap-20 { gap: 20px; }
+  .gap-40 { gap: 40px; }
+  .gap-48 { gap: 48px; }
+
+  .hero {
+    padding-top: var(--section-y);
+    padding-bottom: calc(var(--section-y) + 8px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 64px;
+    align-items: center;
+  }
+  .hero-text {
+    flex: 999 1 520px;
+    min-width: 0;
+    gap: 28px;
+  }
+  .lede {
+    font-size: 21px;
+    color: var(--text-body);
+    max-width: 36rem;
+  }
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 8px;
+  }
+
+  .two-col {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 56px;
+  }
+  .problem {
+    padding-top: min(var(--section-y), 104px);
+    padding-bottom: min(var(--section-y), 104px);
+  }
+  .col {
+    flex: 1 1 420px;
+    min-width: 0;
+  }
+  .big-body {
+    font-size: 20px;
+    line-height: 1.55;
+    color: var(--text-body);
+  }
+  .problem :global(.mt-12) {
+    margin-top: 12px;
+  }
+
+  .intro {
+    max-width: 46rem;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 24px;
+  }
+  .ongoing {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: center;
+  }
+  .ongoing :global(.ongoing-fig) {
+    flex: 1 1 420px;
+    min-width: 0;
+  }
+  .ongoing-text {
+    flex: 1 1 320px;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--text-body);
+  }
+
+  .package-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .measure {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 56px;
+  }
+  .measure-head {
+    flex: 1 1 380px;
+    min-width: 0;
+  }
+
+  @media (max-width: 640px) {
+    .hero { gap: 48px; }
+    .two-col, .measure { gap: 40px; }
+    .col, .measure-head, .ongoing :global(.ongoing-fig) { flex-basis: 100%; }
+  }
+</style>

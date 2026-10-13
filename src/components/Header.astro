@@ -1,0 +1,57 @@
+---
+import { site, nav } from '../config/site';
+import Button from './Button.astro';
+---
+<header class="header">
+  <nav class="container nav" aria-label="Main">
+    <a href="#top" class="logo">{site.name}</a>
+    <div class="links">
+      {nav.map((item) => <a class="navlink" href={item.href}>{item.label}</a>)}
+      <Button href="#contact">Book a call</Button>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .header {
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .logo {
+    font-family: var(--display);
+    font-size: 26px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .logo:hover {
+    color: var(--text);
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 28px;
+  }
+  .navlink {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .navlink:hover {
+    color: var(--clay-light);
+  }
+  @media (max-width: 480px) {
+    .links {
+      gap: 4px 20px;
+    }
+  }
+</style>

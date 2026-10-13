@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+
+# Override ~/.gitignore_global: Cloudflare Pages needs these to build
+!package.json
+!package-lock.json

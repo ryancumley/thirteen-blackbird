@@ -1,0 +1,150 @@
+:root {
+  --ground: #1b1e21;
+  --ground-deep: #171a1d;
+  --panel: #20252a;
+  --rule: #2e3338;
+  --rule-frame: #333a40;
+  --rule-button: #57606a;
+  --text: #ece7df;
+  --text-body: #cfc9bf;
+  --text-muted: #a39d93;
+  --text-label: #8b939b;
+  --clay: #b5563a;
+  --clay-hover: #c4623f;
+  --clay-light: #e08a6c;
+  --clay-lighter: #f0a88e;
+  --display: "DM Serif Display", serif;
+  --serif: "Source Serif 4", Georgia, serif;
+  --mono: "JetBrains Mono", monospace;
+
+  --gutter: 40px;
+  --section-y: 112px;
+  color-scheme: dark;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --gutter: 24px;
+    --section-y: 64px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 400;
+  color: var(--text);
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--clay-light);
+}
+a:hover {
+  color: var(--clay-lighter);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--clay-light);
+  outline-offset: 2px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.section {
+  padding-top: var(--section-y);
+  padding-bottom: var(--section-y);
+}
+
+.band-deep {
+  background: var(--ground-deep);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-label);
+}
+
+.body-text {
+  color: var(--text-body);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 10;
+  background: var(--clay);
+  color: #fff;
+  padding: 10px 16px;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 16px;
+  color: #fff;
+}

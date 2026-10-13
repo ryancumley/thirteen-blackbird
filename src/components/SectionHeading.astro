@@ -1,0 +1,33 @@
+---
+interface Props {
+  text: string;
+  accent: string;
+  level?: 1 | 2;
+  size?: 'h1' | 'h2' | 'contact';
+  id?: string;
+}
+const { text, accent, level = 2, size = level === 1 ? 'h1' : 'h2', id } = Astro.props;
+const Tag = `h${level}` as 'h1' | 'h2';
+---
+<Tag class:list={['heading', size]} id={id}>{text}{' '}<em>{accent}</em></Tag>
+
+<style>
+  .heading {
+    line-height: 1;
+  }
+  .heading em {
+    font-style: italic;
+    color: var(--clay-light);
+  }
+  .h1 {
+    font-size: clamp(44px, 6.4vw, 72px);
+    line-height: 0.98;
+    letter-spacing: -0.01em;
+  }
+  .h2 {
+    font-size: clamp(34px, 4.4vw, 48px);
+  }
+  .contact {
+    font-size: clamp(38px, 5vw, 56px);
+  }
+</style>

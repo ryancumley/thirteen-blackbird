@@ -1,0 +1,55 @@
+---
+const items = [
+  {
+    title: 'Sales knowledge base',
+    body: 'Every interview answer, organized by question, buyer type and competitor, approved by your team.',
+  },
+  {
+    title: 'Public answer pages',
+    body: 'Comparisons, pricing logic, fit and implementation pages, with structured data AI crawlers can read.',
+  },
+  {
+    title: 'Your own AI connector',
+    body: 'An MCP server and ChatGPT / Claude app, listed in the public app directories.',
+  },
+  {
+    title: 'Internal reuse',
+    body: 'The same knowledge in your website chatbot and your reps’ AI tools, so every channel says the same thing.',
+  },
+  {
+    title: 'AI visibility report',
+    body: 'How often and how favorably AI assistants mention you, before and after.',
+  },
+];
+---
+<ul class="grid">
+  {
+    items.map((item) => (
+      <li>
+        <h3>{item.title}</h3>
+        <p class="body-text">{item.body}</p>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+    column-gap: 48px;
+    row-gap: 36px;
+  }
+  li {
+    border-top: 1px solid var(--rule-frame);
+    padding-top: 20px;
+  }
+  h3 {
+    font-size: 26px;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+</style>

@@ -1,0 +1,30 @@
+---
+import { site } from '../config/site';
+---
+<footer class="footer">
+  <div class="container inner">
+    <span class="logo">{site.name}</span>
+    <span>{site.location} · {site.websiteLabel}</span>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--rule);
+  }
+  .inner {
+    padding-top: 28px;
+    padding-bottom: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text-label);
+  }
+  .logo {
+    font-family: var(--display);
+    font-size: 18px;
+    color: var(--text);
+  }
+</style>

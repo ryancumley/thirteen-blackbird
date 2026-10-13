@@ -1,0 +1,54 @@
+---
+const steps = [
+  {
+    title: 'Interview your reps',
+    body: 'Recorded 60-minute calls with your top sellers: objections, competitive wins, pricing logic, who is and isn’t a fit.',
+  },
+  {
+    title: 'Build the knowledge base',
+    body: 'Every answer organized by question, buyer type and competitor, then approved by your team before anything goes live.',
+  },
+  {
+    title: 'Deliver it everywhere',
+    body: 'The same approved knowledge reaches public AI answers, buyers’ AI apps, your chatbot and your reps.',
+  },
+];
+---
+<ol class="steps">
+  {
+    steps.map((s, i) => (
+      <li>
+        <span class="num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+        <h3>{s.title}</h3>
+        <p class="body-text">{s.body}</p>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 24px;
+  }
+  li {
+    border-top: 2px solid var(--clay);
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .num {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--clay-light);
+  }
+  h3 {
+    font-size: clamp(26px, 3vw, 30px);
+    line-height: 1.1;
+  }
+</style>
